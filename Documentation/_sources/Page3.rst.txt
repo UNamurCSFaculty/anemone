@@ -1,0 +1,305 @@
+The syntax
+**********************************************
+
+This page provides the BNF definition of the Multi-Bach language.
+
+
+1.  Auxiliary concepts
+========================
+
+The following constructs are used to represent strings composed of letters and digits, respectively
+
+* starting with a lower-case letter
+* starting with a upper-case letter
+* arbitrarily composed of lower-case, upper-case and digits.
+
+.. code-block:: scala
+  
+   idLC       ::=  (ExprLC ).r 
+   idUC       ::=  (ExprUC).r 
+   idAC       ::=  (ExprAC).r     
+   ExprLC     ::=  " [a-z][0-9a-zA-Z_]* "
+   ExprUC     ::=  " [A-Z][0-9a-zA-Z_]* "
+   ExprAC     ::=  " [0-9a-zA-Z_]+ "
+
+
+
+2.  Data
+========================
+
+2.1. Set specifications 
+------------------------
+
+Sets are declared according to the following grammar:
+
+.. code-block:: scala
+  
+   SetSpec ::= SetKeyword | SetDecls 
+
+.. code-block:: scala
+
+   SetKeyword ::= "set" | "eset"	
+   SetDecls   ::= SetDecls  idUC  "="  "{"  idACList  "}"  "." 
+   idACList   ::= idAC  |   idAC  ","  idACList 
+
+
+
+
+2.2. Equation specifications 
+-----------------------------
+
+Rewriting of si-terms follows the following grammar:
+
+.. code-block:: scala
+
+   EqnSpec   ::= "eqn"  (eqnDecl)*
+   eqnDecl   ::= stInfo   "="   stInfo   "."  
+
+
+
+
+
+3. The primitives
+========================
+
+\ **Multi-Bach**\  primitives obey to the following syntax:
+
+.. code-block:: scala
+  
+   Simple Prim ::=  Basic Prim  |  Proc Prim  |  Rule Prim   |  Scene Prim 
+
+
+.. code-block:: scala
+     
+   Basic Prim  ::=  tell(stInfo)     |  ask(stInfo)     |  get(stInfo)      |  nask(stInfo)
+
+   Proc Prim   ::=  tellp(procCall)  |  askp(procCall)  |  getp(procCall)   |  naskp(procCall)
+
+   Rule Prim   ::=  tellr(rName)     |  askr(rName)     |  getr(rName)      |  naskr(rName) 
+  
+   Scene Prim  ::=  draw_scene(idLC) |  place_at(idLC, idLC, stInfo, stInfo)|  move_to(idLC, idLC, stInfo, stInfo)|
+                    hide(idLC, idLC) |  show(idLC, idLC)   |  layer(idLC, idLC, idLC) | att(stInfo, idLC, idLC, stInfo)
+
+
+where: 
+
+.. code-block:: scala
+   
+   stInfo     ::=  idAC | idAC "(" stInfoArgs ")"
+   stInfoArgs ::=  stInfo | stInfo "," stInfoArgs  
+   procCall   ::=  idUC   | procCall "(" stInfoArgs ")" 
+   rName      ::=  idLC
+
+
+
+
+4. The agents
+====================
+
+4.1. Composed agent
+--------------------
+
+.. code-block:: scala
+ 
+   Agent ::= choiceComposedAgent
+
+   
+.. code-block:: scala
+  
+  choiceComposedAgent ::= paraComposedAgent | paraComposedAgent OpChoice choiceComposedAgent
+
+  paraComposedAgent   ::= seqComposedAgent  | seqComposedAgent OpPara paraComposedAgent
+
+  seqComposedAgent    ::= simpleAgent  | simpleAgent OpSeq  seqComposedAgent
+
+
+.. code-block:: scala
+ 
+   OpChoice  ::= "+"
+   OpPara    ::= "||"
+   OpSeq     ::= ";"
+
+
+4.2. Simple agent
+-------------------
+
+.. code-block:: scala
+
+   simpleAgent ::=  Prim  |  ProcedureCall  |  ParenthesizedAgent  |  CondAgent  |  SumAgent
+
+
+.. code-block:: scala
+
+  ProcedureCall      ::=  idUC | idUC "(" stInfoArgs ")" 
+
+  ParenthesizedAgent ::=  "(" Agent ")"
+
+  CondAgent          ::=  ifThenElseAgent | ifThenAgent
+
+  SumAgent           ::= "sum" lVarsInSets ":" Agent
+
+
+where: 
+
+.. code-block:: scala
+    
+   ifThenAgent       ::=  abCond "->"  Agent 
+   ifThenElseAgent   ::=  abCond "->"  Agent  "<>"  Agent 
+   abCond            ::=  orCond
+   orCond            ::=  andCond | andCond op_or orCond
+   andCond           ::=  simpleCond | simpleCond op_and andCond
+   simpleCond        ::=  primitiveCond | negCond | parenthesizedCond
+   primitiveCond     ::=  stInfo relop  stInfo 
+   negCond           ::=  op_neg  abCond
+   parenthesizedCond ::=  "(" abCond ")"
+
+   op_or    ::= "|" 
+   op_and   ::= "&"
+   op_neg   ::= "!"
+   relop    ::= op_equal | op_sless | op_leq | op_sge | op_geq
+
+   op_equal ::=  "="
+   op_sless ::=  "<"
+   op_leq   ::=  "<="
+   op_sge   ::=  ">"
+   op_geq   ::=  ">="
+
+   lVarsInSets ::= varInSet | varInSet "," lVarsInSets
+   varInSet    ::= idLC "in" idLC
+   
+
+5. Procedures
+=======================
+
+.. code-block:: scala
+
+   ProcDecls     ::= "proc"  (ProcedureDecl)* 
+
+   ProcedureDecl ::= ProcedureName "=" ProcedureBody "." 
+
+   ProcedureName ::= idUC | idUC "(" LargsDefProc ")"
+
+   LargsDefProc  ::= ArgDefProc | ArgDefProc "," LargsDefProc  
+
+   ArgDefProc    ::= idLC ":" idUC 
+
+   ProcedureBody ::= Agent
+
+   
+6. Scenes 
+=====================
+
+.. code-block:: scala
+  
+   SceneSpec ::=  "scene" (SceneSpec)*
+   SceneDef       ::=  idLC      "="  "{"  SizeScene   LayersScene  ImgsScene ListWidgetDesc  "}"  "." 
+
+   SizeScene      ::= "size"     "="  "("  idInt  ","    idInt  ")"  "." 
+
+   LayersScene    ::= "layers"   "="  "{"  lLayers  "}" "." 
+   lLayers        ::= idLC | idLC  "," lLayers
+   
+   ImgsScene      ::= imgDef | imgDef ImgsScene 
+   imgDef         ::= idLC  "="  "loadImage(" idPathFile ")"  "."  
+   idPathFile     ::= (ExprIdPath).r 
+   ExprIdPath     ::= " [.0-9a-zA-Z_/\"]+ " 
+
+   ListWidgetDesc   ::=  (widgetDesc)+
+   widgetDesc       ::= "widget"  idLC  "="  "{"  wdAttributes  wdDisplays  wdInits   "}"
+   
+   wdAttributes     ::=  "attributes"  "="  "{" lWdAttributes "("  ")"  "}" 
+   varInset         ::=  idLC  "in"  idUC "." 
+   lWdAttributes    ::=  varInSet | varInSet "," lWdAttributes
+   
+   wdDisplays       ::= "display"  "="   "{"  (dRule)+ "}"
+   dRule            ::=  abCond  "->"  idLC
+   
+   wdInits          ::= "init" "=" "{" (iRule)+ "}" 
+   iRule            ::=  idLC "=" siInfo "."  
+
+
+   
+7. Rules
+=====================
+
+.. code-block:: scala
+  
+   RuleDecls ::= "rule" (ruleDef)*
+
+   RuleDef       ::=   idLC  "= "  [optVarsInFor]  preCRule  "-->"  postCRule  "." 
+
+   optVarsInFor  ::= "for" varsInFor ":" 
+   varsInFor     ::= varInset | varInSet "," varsInFor
+
+   preCRule      ::= lSiStPnElm
+   postCRule     ::= lSiStPnElm
+   lSiStPnElm    ::= signedStPnInfo | signedStPnInfo ","  lSiStPnElm
+
+   signedStPnInfo ::= signSIElm | signPnInfo
+   signSIElm      ::= sign stInfo
+   signPnInfo     ::= sign ProcedureCall
+   sign           ::=  "+"   |  "-" 
+
+
+  
+8. Temporal formulae 
+=====================
+
+.. code-block:: scala
+
+   Ab_ltl_form   ::= Ab_store_form | Ab_store_form "Until" Ab_ltl_form | "Next" Ab_ltl_form | "Reach" Ab_store_form 
+
+
+where:
+
+
+.. code-block:: scala
+
+   Ab_store_form   ::= OrStoreForm
+
+   OrStoreForm     ::= AndStoreForm | AndStoreForm op_or OrStoreForm 
+
+   AndStoreForm    ::= SimpleStoreForm | SimpleStoreForm op_and  AndStoreForm 
+
+   SimpleStoreForm ::= TrueStoreForm | FalseStoreForm | PrimitiveStoreForm | NegStoreForm | ParenthesizedStoreForm
+
+   TrueStoreForm          ::= "true"       
+   FalseStoreForm         ::= "false"
+   PrimitiveStoreForm     ::= Ab_sf_exp relop Ab_sf_exp
+   NegStoreForm           ::= op_neg Ab_store_form 
+   ParenthesizedStoreForm ::= "(" Ab_store_form ")"
+
+   Ab_sf_exp              ::= idInt 
+   idInt                  ::= (ExprInt).r 
+   ExprInt                ::= "[0-9]+"
+ 
+
+  
+9. Anemone's core program 
+==========================
+
+A program in Anemone consists of specifying successively sets,
+equations, scenes, procedures and rules. Some of the declarations may
+be skipped.
+
+.. code-block:: scala
+
+    Abprgm      ::= [Aboptset] [Abopteqn] [Aboptscene] [Aboptproc] [Aboptrule]
+    Aboptset    ::= SetSpec  
+    Abopteqn    ::= EqnSpec 
+    Aboptscene  ::= SceneSpec 
+    Aboptproc   ::= ProcDecls 
+    Aboptrule   ::= RuleDecls
+
+
+
+
+
+
+
+
+
+
+
+
+

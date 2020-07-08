@@ -1,0 +1,100 @@
+AnimBach's agents
+*****************
+
+AnimBach's agents
+=================
+
+Simple agent
+-------------
+
+* The code of a simple agent:
+
+.. code-block:: scala
+   :linenos:
+
+   def simpleAgent : Parser[AB_AG] = 
+         primitive 
+      |  procedureCall 
+      |  parenthesizedAgent 
+      |  condAgent 
+      |  listPrimitives 
+
+
+.. code-block:: scala
+
+   def primitive : Parser[AB_AST_Primitive]   = 
+       basic_primitive ^^ {  case bp => AB_AST_Primitive(bp,AB_Prim_Type_Basic()) } 
+     | multi_primitive ^^ {  case mp => AB_AST_Primitive(mp,AB_Prim_Type_Multi()) } 
+     | proc_primitive  ^^ {  case pp => AB_AST_Primitive(pp,AB_Prim_Type_Proc())  } 
+     | rule_primitive  ^^ {  case rp => AB_AST_Primitive(rp,AB_Prim_Type_Rule())  } 
+     | scene_primitive ^^ {  case sp => AB_AST_Primitive(sp,AB_Prim_Type_Scene()) } 
+
+.. code-block:: scala
+
+  def procedureCall : Parser[AB_AG] = idUC~opt(stInfoArgs) ^^ {
+         case pn ~ None => AB_AST_Proc_Call(pn,List[AB_SI_ELM]()) 
+	 case pn ~ Some(largs) => AB_AST_Proc_Call(pn,largs) }
+
+
+.. code-block:: scala
+
+  def parenthesizedAgent : Parser[AB_AG] = "("~>agent<~")"
+
+   
+
+.. code-block:: scala
+
+  def condAgent : Parser[AB_AG] =  ifThenElseAgent | ifThenAgent
+
+  def ifThenAgent : Parser[AB_AG] = abCond ~ "->" ~ agent ^^ {
+         case c ~ _ ~ ag => AB_IF_THEN_Agent(c,ag) }
+
+  def ifThenElseAgent : Parser[AB_AG] = abCond ~ "->" ~ agent ~ "<>" ~ agent ^^ {
+         case c ~ _ ~ agi ~ _ ~ agii => AB_IF_THEN_ELSE_Agent(c,agi,agii) }
+
+
+.. code-block:: scala
+  
+  def listPrimitives : Parser[AB_AG] = "|[" ~ rep1sep(primitive, ";") ~ "]|" ^^ {
+            case _ ~ lprim ~ _ => AB_AST_List_Primitive(lprim) }
+
+
+2. Composite agent
+==================
+
+* The code of a composite agent:
+
+.. code-block:: scala
+  :linenos:
+
+  def agent = compositionChoice
+
+.. code-block:: scala
+
+  def compositionChoice : Parser[AB_AG] = compositionPara~rep(opChoice~compositionChoice) ^^ {
+        case ag ~ List() => ag
+        case agi ~ List(op~agii)  => AB_AST_CHOICE_Agent(agi,agii) }
+
+
+.. code-block:: scala
+
+  def compositionPara : Parser[AB_AG]  =  compositionSeq~rep(opPara~compositionPara) ^^ {
+        case ag ~ List() => ag
+        case agi ~ List(op~agii)  => AB_AST_PARA_Agent(agi,agii) }
+
+
+.. code-block:: scala
+
+  def compositionSeq : Parser[AB_AG]  =  simpleAgent~rep(opSeq~compositionSeq) ^^ {
+        case ag ~ List() => ag
+        case agi ~ List(op~agii)  => AB_AST_SEQ_Agent(agi,agii) }
+
+
+
+
+
+
+
+
+
+

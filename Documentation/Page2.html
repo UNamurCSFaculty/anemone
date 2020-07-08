@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The Multi-Bach language and its temporal logic &#8212; Anemone 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/dotted.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The syntax" href="Page3.html" />
+    <link rel="prev" title="The Anemone workbench" href="Page1.html" /> 
+  </head><body>
+        <div class="header">
+          <div class="header-top"><img class="rightlogo" src="_static/my_logo.png" alt="Logo"/>
+            <h1 class="heading"><a href="index.html">
+              <span>Anemone 1.0.0 documentation</span></a></h1>
+            <h2 class="heading"><span>The Multi-Bach language and its temporal logic</span></a></h2>
+          </div>
+          <div class="topnav">
+            
+        <p>
+        &#171;&#160;&#160;<a href="Page1.html">The Anemone workbench</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Page3.html">The syntax</a>&#160;&#160;&#187;
+        </p>
+
+            <div class="globaltoc">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Page1.html">The Anemone workbench</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Multi-Bach language and its temporal logic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#definition-of-data">1. Definition of data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agents">2. Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processes-as-active-data">3. Processes as active data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rules">4. Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#animations">5. Animations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-fragment-of-temporal-logic">6. A fragment of temporal logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Page3.html">The syntax</a></li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+
+          <div class="document">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="the-multi-bach-language-and-its-temporal-logic">
+<h1>The Multi-Bach language and its temporal logic<a class="headerlink" href="#the-multi-bach-language-and-its-temporal-logic" title="Permalink to this headline">¶</a></h1>
+<p>Anemone uses a process algebra called <strong>Multi-Bach</strong> which incorporates the following features.</p>
+<div class="section" id="definition-of-data">
+<h2>1. Definition of data<a class="headerlink" href="#definition-of-data" title="Permalink to this headline">¶</a></h2>
+<p>Multi-Bach allows the user to define finite <strong>sets</strong>.
+Concretely, such sets are defined by associating an identifier with an enumeration of elements, such as:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">eset</span>  <span class="nc">Cols</span>  <span class="k">=</span>  <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">}.</span>
+      <span class="nc">Rows</span>  <span class="k">=</span>  <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">}.</span>
+</pre></div>
+</div>
+<div class="section" id="set-definition">
+<h3>1.1. Set definition<a class="headerlink" href="#set-definition" title="Permalink to this headline">¶</a></h3>
+<p>Sets are defined by the keyword <strong>eset</strong> followed by a list of set declarations of the form</p>
+<p class="centered">
+<strong>set_identifier = set_enumeration.</strong></p><p>where <strong>set_identifer</strong> is  a  string  of  letters  and  digits,  starting  with  an upper case letter, and where <strong>set_enumeration</strong> is a comma-separated list of strings composed of letters and digits, surrounded by the { and } brackets.</p>
+<p><strong>Example:</strong> In the case of the Rush Hour Problem,  two sets are required:  one to specify the columns and the rows (ranging from 1 to 6) and one to specify the colors  of  the  vehicles.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">eset</span>  <span class="nc">RCInt</span>  <span class="k">=</span>  <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">}.</span>
+      <span class="nc">Colors</span> <span class="k">=</span>  <span class="o">{</span> <span class="n">yellow</span> <span class="o">,</span>  <span class="n">green</span> <span class="o">,</span>  <span class="n">blue</span> <span class="o">,</span>  <span class="n">purple</span> <span class="o">,</span>  <span class="n">red</span> <span class="o">,</span>  <span class="n">orange</span><span class="o">}.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="si-terms">
+<h3>1.2. Si-terms<a class="headerlink" href="#si-terms" title="Permalink to this headline">¶</a></h3>
+<p>Si-terms are either <strong>tokens</strong>, expressed as strings of letters and digits (possibly containing only letters or digits) or structured constructs of the form <span class="math notranslate nohighlight">\(f(t_{1}, ..., t_{n})\)</span>  where <span class="math notranslate nohighlight">\(f, t_{1}, ...,t_{n}\)</span> are such strings.</p>
+<p><strong>Example:</strong> In the Rush Hour example, <em>free</em> places of the game are represented by the si-terms <strong>free(i,j)</strong> with <em>i</em> a row and <em>j</em> a column. Such  si-terms  indicate  the  places currently free on the grid, namely not occupied by a car or a truck.</p>
+</div>
+<div class="section" id="equations">
+<h3>1.3. Equations<a class="headerlink" href="#equations" title="Permalink to this headline">¶</a></h3>
+<p>Rewritings are declared by using the <strong>eqn</strong> keyword together with equations of the form <strong>s = t</strong>. where <strong>s</strong> and <strong>t</strong> are si-terms.</p>
+<p><strong>Example:</strong> In the Rush Hour example, assuming that trucks take three cells and are identified by the upper and left-most cell they occupy, the operation <strong>down_truck</strong> determines the cell to be taken by a truck moving down:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">eqn</span> <span class="n">down_truck</span> <span class="o">(</span> <span class="mi">1</span> <span class="o">)</span> <span class="k">=</span> <span class="mi">4</span> <span class="o">.</span> <span class="n">down_truck</span> <span class="o">(</span> <span class="mi">2</span> <span class="o">)</span> <span class="k">=</span> <span class="mi">5</span> <span class="o">.</span> <span class="n">down_truck</span> <span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="k">=</span> <span class="mf">6.</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Besides <strong>down_truck</strong>,  our  modelling  of  the  Rush  Hour  problem  requires  to specify a similar mapping <strong>down_car</strong> for cars (taking two cells instead of three). It is also convient to specify two additional mappings <em>right_truck</em> and <em>right_car</em> corresponding to horizontal movements.
+Finally, <em>pred</em> and <em>succ</em> mappings are defined to reflect the predecessor and successor functions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="agents">
+<h2>2. Agents<a class="headerlink" href="#agents" title="Permalink to this headline">¶</a></h2>
+<p>The primitives of <strong>Multi-Bach</strong> comprise the <strong>tell, ask, nask</strong> and <strong>get</strong> primitives. They can be composed to form more complex agents by using traditional composition  operators  from  concurrency  theory:</p>
+<ul class="simple">
+<li>sequential  composition noted “;”,</li>
+<li>parallel composition noted “||”,</li>
+<li>and non-deterministic choice noted “+”.</li>
+</ul>
+<p>Multi-Bach adds two other mechanisms:</p>
+<ul class="simple">
+<li>conditional statements of the form <span class="math notranslate nohighlight">\(C \rightarrow a_1 \diamondsuit  a_2\)</span>, where <em>c</em> denotes a condition and <span class="math notranslate nohighlight">\(a_{1}\)</span> and <span class="math notranslate nohighlight">\(a_{2}\)</span> are agents,</li>
+<li>generalized choices of the form <span class="math notranslate nohighlight">\(\sum_{e \in S} A_{e}\)</span>, where <span class="math notranslate nohighlight">\(A_{e}\)</span> is an agent parameterized by variable <em>e</em> ranging  in  set <em>S</em>.</li>
+</ul>
+<p>The statements of the <em>Multi-Bach</em> language, called agents by abuse of language, consist of the statements <em>A</em> generated by the following grammar:</p>
+<div class="math notranslate nohighlight">
+\[A ::=  Prim  |  Proc  | A ; A  |  A || A |  A + A  | C \rightarrow A \diamondsuit  A | \sum_{e \in S} A_{e}\]</div>
+<p>where <strong>Prim</strong>  represents a primitive, <strong>Proc</strong>  a procedure call, <strong>C</strong>  a condition, <strong>e</strong>  a variable and <strong>S</strong> a set.</p>
+<p>Procedure definitions  are  declared  by  using  the <em>proc</em> keyword  together with equations of the form <strong>proc_name = proc_decl</strong> where:</p>
+<ul>
+<li><p class="first"><em>proc_name</em> is of the form <span class="math notranslate nohighlight">\(p(a_{1}, ...,a_{n})\)</span> with</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>p</em> a string of letters and digits, starting with an upper case letter</li>
+<li><span class="math notranslate nohighlight">\(a_{1}, ..., a_{n}\)</span> are formal arguments declared by constructs of the form <em>idLC : idUC</em> associating a string <em>idLC</em>, composed of letters  and  digits  starting  with  a  lowercase  letter,  with  a  string <em>idUC</em> of  letters  and  digits  starting  with  an  uppercase  letter, representing a set</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><em>proc_dec</em> is an agent defined from primitives and the operators.</p>
+</li>
+</ul>
+<p>Procedure calls are constructs of the form <span class="math notranslate nohighlight">\(p(s_{1}, ...,s_{n})\)</span> with <em>p</em> a procedure name and <span class="math notranslate nohighlight">\(s_{1}, ...,s_{n}\)</span> si-terms.</p>
+<p><strong>Example:</strong> The behavior of a vertical truck can be described as follows:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="nc">VerticalTruck</span> <span class="o">(</span> <span class="n">r</span><span class="k">:</span> <span class="kt">RCInt</span><span class="o">,</span> <span class="n">c</span><span class="k">:</span> <span class="kt">RCInt</span><span class="o">,</span> <span class="n">p</span><span class="k">:</span> <span class="kt">Colors</span> <span class="o">)</span> <span class="k">=</span>
+      <span class="o">(</span> <span class="o">(</span> <span class="n">r</span><span class="o">&gt;</span><span class="mi">1</span> <span class="o">&amp;</span> <span class="n">r</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">)</span> <span class="o">−&gt;</span>
+              <span class="o">(</span> <span class="n">get</span> <span class="o">(</span> <span class="n">free</span> <span class="o">(</span> <span class="n">pred</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">)</span> <span class="o">;</span>
+                <span class="nc">MoveTruck</span> <span class="o">(</span><span class="n">p</span> <span class="o">,</span> <span class="n">pred</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">;</span>
+                <span class="n">tell</span> <span class="o">(</span> <span class="n">free</span> <span class="o">(</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">)</span> <span class="o">;</span>
+                <span class="nc">VerticalTruck</span> <span class="o">(</span> <span class="n">pred</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">,</span> <span class="n">p</span><span class="o">)</span> <span class="o">)</span> <span class="o">).</span>
+     <span class="o">+</span>
+      <span class="o">(</span> <span class="o">(</span> <span class="n">r</span><span class="o">&gt;=</span><span class="mi">1</span> <span class="o">&amp;</span> <span class="n">r</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">)</span> <span class="o">−&gt;</span>
+              <span class="o">(</span> <span class="n">get</span> <span class="o">(</span> <span class="n">free</span> <span class="o">(</span> <span class="n">down_truck</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">)</span> <span class="o">;</span>
+                <span class="nc">MoveTruck</span> <span class="o">(</span><span class="n">p</span> <span class="o">,</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">;</span>
+                <span class="n">tell</span> <span class="o">(</span> <span class="n">free</span> <span class="o">(</span> <span class="n">r</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">)</span> <span class="o">;</span>
+                <span class="nc">VerticalTruck</span> <span class="o">(</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">p</span> <span class="o">)</span> <span class="o">)</span> <span class="o">).</span>
+</pre></div>
+</div>
+<p>The code of some trucks and cars:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span>  <span class="nc">YellowTruck</span> <span class="k">=</span> <span class="nc">VerticalTruck</span> <span class="o">(</span><span class="mi">1</span> <span class="o">,</span><span class="mi">1</span> <span class="o">,</span> <span class="n">yellow</span> <span class="o">).</span>
+      <span class="nc">GreenTruck</span> <span class="k">=</span> <span class="nc">HorizontalTruck</span> <span class="o">(</span><span class="mi">6</span> <span class="o">,</span><span class="mi">3</span> <span class="o">,</span> <span class="n">green</span> <span class="o">).</span>
+      <span class="nc">RedCar</span> <span class="k">=</span> <span class="nc">HorizontalCar</span> <span class="o">(</span><span class="mi">3</span> <span class="o">,</span><span class="mi">2</span> <span class="o">,</span> <span class="n">red</span> <span class="o">).</span>
+      <span class="nc">OrangeCar</span> <span class="k">=</span> <span class="nc">VerticalCar</span> <span class="o">(</span><span class="mi">5</span> <span class="o">,</span><span class="mi">6</span> <span class="o">,</span> <span class="n">orange</span> <span class="o">).</span>
+</pre></div>
+</div>
+<p>Places occupied by vertical trucks may be specified as follows:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="nc">VTruckPlaces</span><span class="o">(</span> <span class="n">r</span><span class="k">:</span> <span class="kt">RCInt</span> <span class="o">,</span>  <span class="n">c</span><span class="k">:</span>  <span class="kt">RCInt</span><span class="o">)</span> <span class="k">=</span>
+     <span class="o">(</span><span class="n">r</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">)</span> <span class="o">−&gt;</span> <span class="o">(</span> <span class="n">get</span> <span class="o">(</span> <span class="n">free</span><span class="o">(</span> <span class="n">r</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">);</span>
+                <span class="n">get</span> <span class="o">(</span> <span class="n">free</span><span class="o">(</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">);</span>
+                <span class="n">get</span> <span class="o">(</span> <span class="n">free</span><span class="o">(</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">succ</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">,</span> <span class="n">c</span> <span class="o">)</span> <span class="o">)</span> <span class="o">).</span>
+</pre></div>
+</div>
+<p>thanks to which the code to handled places occupied by some trucks and cars is as follows:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="nc">YellowTruck</span> <span class="k">=</span> <span class="nc">VTruckPlaces</span> <span class="o">(</span> <span class="mi">1</span> <span class="o">,</span> <span class="mi">1</span> <span class="o">).</span>
+     <span class="nc">GreenTruck</span> <span class="k">=</span> <span class="nc">HTruckPlaces</span> <span class="o">(</span> <span class="mi">6</span> <span class="o">,</span> <span class="mi">3</span> <span class="o">).</span>
+     <span class="nc">RedCar</span> <span class="k">=</span> <span class="nc">HCarPlaces</span> <span class="o">(</span> <span class="mi">3</span> <span class="o">,</span> <span class="mi">2</span> <span class="o">).</span>
+     <span class="nc">OrangeCar</span> <span class="k">=</span> <span class="nc">VCarPlaces</span> <span class="o">(</span> <span class="mi">5</span> <span class="o">,</span> <span class="mi">6</span> <span class="o">).</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="processes-as-active-data">
+<h2>3. Processes as active data<a class="headerlink" href="#processes-as-active-data" title="Permalink to this headline">¶</a></h2>
+<p><em>Multi-Bach</em> treats processes as active data through the four primtives, <em>tellp(Proc)</em>, <em>askp(Proc)</em>, <em>naskp(Proc)</em> and <em>getp(Proc)</em>. They are used  to  respectively create a thread in charge of computing the procedure call <em>Proc</em>, to test for its presence or absence and to remove a thread associated with <em>Proc</em>.
+For instance, <em>tellp(YellowTruck)</em> creates a new thread for the yellow truck, identified by the string ’YellowTruck’. Executing <em>getp(YellowTruck)</em> kills this thread, whatever point of execution the thread has reached.</p>
+<div class="align-center figure" id="id1">
+<a class="reference internal image-reference" href="_images/animation.jpg"><img alt="alternate text" src="_images/animation.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Rush Hour problem: Animation</span></p>
+</div>
+</div>
+<div class="section" id="rules">
+<h2>4. Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<p>Multi-Bach uses rules of the form <span class="math notranslate nohighlight">\(+t, −u \longrightarrow +v, −w\)</span> to assert that the presence of <span class="math notranslate nohighlight">\(t\)</span> and the absence of <span class="math notranslate nohighlight">\(u\)</span> implies the presence of <span class="math notranslate nohighlight">\(v\)</span> and the absence of <span class="math notranslate nohighlight">\(w\)</span>.</p>
+<p>A rule is declared by using the keyword <em>rule</em> together with an equation of  the  form</p>
+<p class="centered">
+<strong>rule_name = rule_description.</strong></p><ul class="simple">
+<li>The rule  name  is  a  string  of letters and digits, starting with a lower case letter.</li>
+<li>The rule description is a construct of the form <em>quant : l_m_objects −−&gt; l_m_objects</em> where <em>quant</em> quantifies  variables  (represented  as  strings  of  letter  and  digits,  starting with a lower case letter) over sets and where <em>l_m_objects</em> lists si-terms or procedure calls, positively or negatively marked</li>
+</ul>
+<p><strong>Example:</strong> The following rule handles the end of the game by asserting that any time the token <strong>out</strong>  appears on the store, the token <strong>puzzle_solved</strong>  should be placed, the procedure call  <strong>RedCarOut</strong> should be triggered and the token <strong>out</strong>  should be removed:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span>  <span class="n">end_puzzle</span> <span class="k">=</span> <span class="o">+</span><span class="n">out</span> <span class="o">−−&gt;</span> <span class="o">+</span><span class="n">puzzle_solved</span><span class="o">,</span> <span class="o">+</span><span class="nc">RedCarOut</span><span class="o">,</span> <span class="o">-</span><span class="n">out</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The <em>RedCarOut</em> procedure changes the <strong>position</strong>  attribute so that the red car can be depicted in a new way. It is
+defined as follows:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span>  <span class="nc">RedCarOut</span> <span class="k">=</span> <span class="n">att</span> <span class="o">(</span> <span class="n">position</span> <span class="o">,</span> <span class="n">red_car</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span> <span class="n">out_grid</span> <span class="o">).</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="animations">
+<h2>5. Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
+<p>Animations are obtained in a twofold manner:</p>
+<ol class="arabic simple">
+<li>by describing the scene to be painted</li>
+<li>by primitives to place widgets, to move them, to make them appear or disappear, and more generally to change their attributes.</li>
+</ol>
+<p>A scene is declared by using the <em>scene</em> keyword together with an equation of the form</p>
+<p class="centered">
+<strong>scene_name = scene_description.</strong></p><ul class="simple">
+<li>The <em>scene name</em> consists of a string of letters and digits starting with a lower case letter.</li>
+<li>The <em>scene description</em> consists of a series of equalities defining the size of the widget, the layers, the background image, a series of images as well as a series of widgets, declared by means of the <em>widget</em> keyword.</li>
+</ul>
+<p><strong>Example:</strong> The following listing provides an example of the definition of the scene named <em>rhScene:</em></p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="n">rhScene</span> <span class="k">=</span>
+ <span class="o">{</span>
+      <span class="n">size</span>  <span class="k">=</span> <span class="o">(</span><span class="mi">640</span> <span class="o">,</span><span class="mi">640</span><span class="o">).</span>
+      <span class="n">layers</span> <span class="k">=</span> <span class="o">{</span><span class="n">top</span> <span class="o">,</span>  <span class="n">middle</span> <span class="o">,</span>  <span class="n">bottom</span><span class="o">}.</span>
+      <span class="n">background</span> <span class="k">=</span> <span class="n">loadImage</span> <span class="o">(</span> <span class="nc">Images</span><span class="o">/</span> <span class="n">the_background_img</span><span class="o">.</span><span class="n">png</span> <span class="o">).</span>
+      <span class="n">green_car</span>  <span class="k">=</span> <span class="n">loadImage</span> <span class="o">(</span> <span class="nc">Images</span><span class="o">/</span> <span class="n">green_car</span><span class="o">.</span><span class="n">jpg</span> <span class="o">).</span>
+      <span class="n">red_car</span>    <span class="k">=</span> <span class="n">loadImage</span> <span class="o">(</span> <span class="nc">Images</span><span class="o">/</span> <span class="n">red_car</span><span class="o">.</span><span class="n">jpg</span> <span class="o">).</span>
+      <span class="n">widget</span>  <span class="n">car</span> <span class="k">=</span>
+          <span class="o">{</span>
+             <span class="n">attributes</span> <span class="k">=</span> <span class="o">{</span> <span class="n">color</span>  <span class="n">in</span>  <span class="n">idColors</span><span class="o">.</span> <span class="o">}</span>
+             <span class="n">display</span>    <span class="k">=</span> <span class="o">{</span> <span class="n">color</span> <span class="k">=</span> <span class="n">green</span> <span class="o">−&gt;</span> <span class="n">green_car</span><span class="o">.</span>
+                            <span class="n">color</span> <span class="k">=</span> <span class="n">red</span> <span class="o">−&gt;</span> <span class="n">red_car</span> <span class="o">.}</span>
+             <span class="n">init</span>       <span class="k">=</span> <span class="o">{</span> <span class="n">wdX</span> <span class="k">=</span> <span class="mf">40.</span>
+                            <span class="n">wdY</span> <span class="k">=</span> <span class="mf">60.</span>
+                            <span class="n">wdL</span> <span class="k">=</span> <span class="n">top</span><span class="o">.</span>
+                            <span class="n">color</span> <span class="k">=</span> <span class="n">red</span><span class="o">.</span>
+                          <span class="o">}</span>
+         <span class="o">}</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Scenes and widgets are manipulated by means of two primitives:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><em>draw_scene(s)</em>: to draw the scene identified by <em>s</em></li>
+<li><em>att(x,w,s,v)</em>: to give value v to the attribute x of the widget identified by w on scene s.</li>
+</ol>
+</div></blockquote>
+<p>where</p>
+<ul class="simple">
+<li><em>place_at(w,s,x,y)</em>: to place the widget identified by <em>w</em> on scene <em>s</em> at the coordinates <em>(x, y)</em></li>
+<li><em>move_to(w,s,x,y)</em>: to move the widget identified by <em>w</em> on scene <em>s</em> from its current position to the new coordinates <em>(x, y)</em></li>
+<li><em>hide(w,s)</em>: to hide the widget identified by <em>w</em> on scene <em>s</em></li>
+<li><em>show(w,s)</em>: to make appear the widget identified by <em>w</em> on scene <em>s</em></li>
+<li><em>layer(w,s,l)</em>: to place the widget identified by <em>w</em> on scene <em>s</em> on the layer <em>l</em> of that scene.</li>
+</ul>
+<p><strong>Example:</strong>   As an example, the following code may be used for placing and moving trucks</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="nc">PlaceTruck</span> <span class="o">(</span> <span class="n">r</span><span class="k">:</span> <span class="kt">RCInt</span><span class="o">,</span> <span class="n">c</span><span class="k">:</span> <span class="kt">RCInt</span><span class="o">,</span> <span class="n">p</span><span class="k">:</span> <span class="kt">Colors</span> <span class="o">)</span> <span class="k">=</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">yellow</span> <span class="o">−&gt;</span> <span class="n">place_at</span> <span class="o">(</span> <span class="n">yellow_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span><span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+     <span class="o">+</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">green</span>  <span class="o">−&gt;</span> <span class="n">place_at</span> <span class="o">(</span> <span class="n">green_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span> <span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+     <span class="o">+</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">bleu</span>   <span class="o">−&gt;</span> <span class="n">place_at</span> <span class="o">(</span> <span class="n">bleu_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span> <span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+     <span class="o">+</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">purple</span> <span class="o">−&gt;</span> <span class="n">place_at</span> <span class="o">(</span> <span class="n">purple_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span><span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">).</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="nc">MoveTruck</span> <span class="o">(</span> <span class="n">r</span><span class="k">:</span> <span class="kt">RCInt</span><span class="o">,</span> <span class="n">c</span><span class="k">:</span> <span class="kt">RCInt</span><span class="o">,</span> <span class="n">p</span><span class="k">:</span> <span class="kt">Colors</span> <span class="o">)</span> <span class="k">=</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">yellow</span> <span class="o">−&gt;</span> <span class="n">move_to</span> <span class="o">(</span> <span class="n">yellow_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span><span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+     <span class="o">+</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">green</span>  <span class="o">−&gt;</span> <span class="n">move_to</span> <span class="o">(</span> <span class="n">green_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span><span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+     <span class="o">+</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">bleu</span>   <span class="o">−&gt;</span> <span class="n">move_to</span> <span class="o">(</span> <span class="n">bleu_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span><span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+     <span class="o">+</span>
+     <span class="o">(</span> <span class="n">p</span> <span class="k">=</span> <span class="n">purple</span> <span class="o">−&gt;</span> <span class="n">move_to</span> <span class="o">(</span> <span class="n">purple_truck</span> <span class="o">,</span> <span class="n">rhScene</span> <span class="o">,</span><span class="n">x_vehicle</span> <span class="o">(</span> <span class="n">c</span> <span class="o">)</span> <span class="o">,</span> <span class="n">y_vehicle</span> <span class="o">(</span> <span class="n">r</span> <span class="o">)</span> <span class="o">)</span> <span class="o">).</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-fragment-of-temporal-logic">
+<h2>6. A fragment of temporal logic<a class="headerlink" href="#a-fragment-of-temporal-logic" title="Permalink to this headline">¶</a></h2>
+<p>The Anemone workbench uses a fragment of PLTL with, as main goal, to check the reachability of states. It defined  by  the following grammar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TF</span> <span class="p">::</span><span class="o">=</span> <span class="n">PF</span> <span class="o">|</span> <span class="n">Next</span> <span class="n">TF</span> <span class="o">|</span> <span class="n">PF</span> <span class="n">Until</span> <span class="n">TF</span>
+</pre></div>
+</div>
+<p>where PF is a propositional formula obtained by composing with usual connectors basic formulae. These are composed of equalities and inequalities combining algebraic expressions involving integers and number of occurrences of si-terms.</p>
+<p><strong>Example :</strong> As an example, assuming that the red car indicates that it leaves the grid by placing the token <strong>out</strong>  on the store, a solution to the rush problem is obtained by verifying the formula:</p>
+<p class="centered">
+<strong>true Until(#out= 1)</strong></p><p>Such formulae being very often used, they are abbreviated in Anemone as:</p>
+<p class="centered">
+<strong>Reach(#out= 1)</strong></p></div>
+</div>
+
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+
+        <div class="bottomnav">
+          
+        <p>
+        &#171;&#160;&#160;<a href="Page1.html">The Anemone workbench</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Page3.html">The syntax</a>&#160;&#160;&#187;
+        </p>
+
+        </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Manel Barkallah &amp; Jean-Marie Jacquet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

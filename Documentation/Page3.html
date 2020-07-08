@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The syntax &#8212; Anemone 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/dotted.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="The Multi-Bach language and its temporal logic" href="Page2.html" /> 
+  </head><body>
+        <div class="header">
+          <div class="header-top"><img class="rightlogo" src="_static/my_logo.png" alt="Logo"/>
+            <h1 class="heading"><a href="index.html">
+              <span>Anemone 1.0.0 documentation</span></a></h1>
+            <h2 class="heading"><span>The syntax</span></a></h2>
+          </div>
+          <div class="topnav">
+            
+        <p>
+        &#171;&#160;&#160;<a href="Page2.html">The Multi-Bach language and its temporal logic</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+            <div class="globaltoc">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Page1.html">The Anemone workbench</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Page2.html">The Multi-Bach language and its temporal logic</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The syntax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#auxiliary-concepts">1.  Auxiliary concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data">2.  Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-primitives">3. The primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-agents">4. The agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedures">5. Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scenes">6. Scenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rules">7. Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#temporal-formulae">8. Temporal formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anemone-s-core-program">9. Anemone’s core program</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+
+          <div class="document">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="the-syntax">
+<h1>The syntax<a class="headerlink" href="#the-syntax" title="Permalink to this headline">¶</a></h1>
+<p>This page provides the BNF definition of the Multi-Bach language.</p>
+<div class="section" id="auxiliary-concepts">
+<h2>1.  Auxiliary concepts<a class="headerlink" href="#auxiliary-concepts" title="Permalink to this headline">¶</a></h2>
+<p>The following constructs are used to represent strings composed of letters and digits, respectively</p>
+<ul class="simple">
+<li>starting with a lower-case letter</li>
+<li>starting with a upper-case letter</li>
+<li>arbitrarily composed of lower-case, upper-case and digits.</li>
+</ul>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">idLC</span>       <span class="o">::=</span>  <span class="o">(</span><span class="nc">ExprLC</span> <span class="o">).</span><span class="n">r</span>
+<span class="n">idUC</span>       <span class="o">::=</span>  <span class="o">(</span><span class="nc">ExprUC</span><span class="o">).</span><span class="n">r</span>
+<span class="n">idAC</span>       <span class="o">::=</span>  <span class="o">(</span><span class="nc">ExprAC</span><span class="o">).</span><span class="n">r</span>
+<span class="nc">ExprLC</span>     <span class="o">::=</span>  <span class="s">&quot; [a-z][0-9a-zA-Z_]* &quot;</span>
+<span class="nc">ExprUC</span>     <span class="o">::=</span>  <span class="s">&quot; [A-Z][0-9a-zA-Z_]* &quot;</span>
+<span class="nc">ExprAC</span>     <span class="o">::=</span>  <span class="s">&quot; [0-9a-zA-Z_]+ &quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>2.  Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-specifications">
+<h3>2.1. Set specifications<a class="headerlink" href="#set-specifications" title="Permalink to this headline">¶</a></h3>
+<p>Sets are declared according to the following grammar:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">SetSpec</span> <span class="o">::=</span> <span class="nc">SetKeyword</span> <span class="o">|</span> <span class="nc">SetDecls</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">SetKeyword</span> <span class="o">::=</span> <span class="s">&quot;set&quot;</span> <span class="o">|</span> <span class="s">&quot;eset&quot;</span>
+<span class="nc">SetDecls</span>   <span class="o">::=</span> <span class="nc">SetDecls</span>  <span class="n">idUC</span>  <span class="s">&quot;=&quot;</span>  <span class="s">&quot;{&quot;</span>  <span class="n">idACList</span>  <span class="s">&quot;}&quot;</span>  <span class="s">&quot;.&quot;</span>
+<span class="n">idACList</span>   <span class="o">::=</span> <span class="n">idAC</span>  <span class="o">|</span>   <span class="n">idAC</span>  <span class="s">&quot;,&quot;</span>  <span class="n">idACList</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="equation-specifications">
+<h3>2.2. Equation specifications<a class="headerlink" href="#equation-specifications" title="Permalink to this headline">¶</a></h3>
+<p>Rewriting of si-terms follows the following grammar:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">EqnSpec</span>   <span class="o">::=</span> <span class="s">&quot;eqn&quot;</span>  <span class="o">(</span><span class="n">eqnDecl</span><span class="o">)*</span>
+<span class="n">eqnDecl</span>   <span class="o">::=</span> <span class="n">stInfo</span>   <span class="s">&quot;=&quot;</span>   <span class="n">stInfo</span>   <span class="s">&quot;.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-primitives">
+<h2>3. The primitives<a class="headerlink" href="#the-primitives" title="Permalink to this headline">¶</a></h2>
+<p><strong>Multi-Bach</strong> primitives obey to the following syntax:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Simple</span> <span class="nc">Prim</span> <span class="o">::=</span>  <span class="nc">Basic</span> <span class="nc">Prim</span>  <span class="o">|</span>  <span class="nc">Proc</span> <span class="nc">Prim</span>  <span class="o">|</span>  <span class="nc">Rule</span> <span class="nc">Prim</span>   <span class="o">|</span>  <span class="nc">Scene</span> <span class="nc">Prim</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Basic</span> <span class="nc">Prim</span>  <span class="o">::=</span>  <span class="n">tell</span><span class="o">(</span><span class="n">stInfo</span><span class="o">)</span>     <span class="o">|</span>  <span class="n">ask</span><span class="o">(</span><span class="n">stInfo</span><span class="o">)</span>     <span class="o">|</span>  <span class="n">get</span><span class="o">(</span><span class="n">stInfo</span><span class="o">)</span>      <span class="o">|</span>  <span class="n">nask</span><span class="o">(</span><span class="n">stInfo</span><span class="o">)</span>
+
+<span class="nc">Proc</span> <span class="nc">Prim</span>   <span class="o">::=</span>  <span class="n">tellp</span><span class="o">(</span><span class="n">procCall</span><span class="o">)</span>  <span class="o">|</span>  <span class="n">askp</span><span class="o">(</span><span class="n">procCall</span><span class="o">)</span>  <span class="o">|</span>  <span class="n">getp</span><span class="o">(</span><span class="n">procCall</span><span class="o">)</span>   <span class="o">|</span>  <span class="n">naskp</span><span class="o">(</span><span class="n">procCall</span><span class="o">)</span>
+
+<span class="nc">Rule</span> <span class="nc">Prim</span>   <span class="o">::=</span>  <span class="n">tellr</span><span class="o">(</span><span class="n">rName</span><span class="o">)</span>     <span class="o">|</span>  <span class="n">askr</span><span class="o">(</span><span class="n">rName</span><span class="o">)</span>     <span class="o">|</span>  <span class="n">getr</span><span class="o">(</span><span class="n">rName</span><span class="o">)</span>      <span class="o">|</span>  <span class="n">naskr</span><span class="o">(</span><span class="n">rName</span><span class="o">)</span>
+
+<span class="nc">Scene</span> <span class="nc">Prim</span>  <span class="o">::=</span>  <span class="n">draw_scene</span><span class="o">(</span><span class="n">idLC</span><span class="o">)</span> <span class="o">|</span>  <span class="n">place_at</span><span class="o">(</span><span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">,</span> <span class="n">stInfo</span><span class="o">,</span> <span class="n">stInfo</span><span class="o">)|</span>  <span class="n">move_to</span><span class="o">(</span><span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">,</span> <span class="n">stInfo</span><span class="o">,</span> <span class="n">stInfo</span><span class="o">)|</span>
+                 <span class="n">hide</span><span class="o">(</span><span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">)</span> <span class="o">|</span>  <span class="n">show</span><span class="o">(</span><span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">)</span>   <span class="o">|</span>  <span class="n">layer</span><span class="o">(</span><span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">)</span> <span class="o">|</span> <span class="n">att</span><span class="o">(</span><span class="n">stInfo</span><span class="o">,</span> <span class="n">idLC</span><span class="o">,</span> <span class="n">idLC</span><span class="o">,</span> <span class="n">stInfo</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>where:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">stInfo</span>     <span class="o">::=</span>  <span class="n">idAC</span> <span class="o">|</span> <span class="n">idAC</span> <span class="s">&quot;(&quot;</span> <span class="n">stInfoArgs</span> <span class="s">&quot;)&quot;</span>
+<span class="n">stInfoArgs</span> <span class="o">::=</span>  <span class="n">stInfo</span> <span class="o">|</span> <span class="n">stInfo</span> <span class="s">&quot;,&quot;</span> <span class="n">stInfoArgs</span>
+<span class="n">procCall</span>   <span class="o">::=</span>  <span class="n">idUC</span>   <span class="o">|</span> <span class="n">procCall</span> <span class="s">&quot;(&quot;</span> <span class="n">stInfoArgs</span> <span class="s">&quot;)&quot;</span>
+<span class="n">rName</span>      <span class="o">::=</span>  <span class="n">idLC</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-agents">
+<h2>4. The agents<a class="headerlink" href="#the-agents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="composed-agent">
+<h3>4.1. Composed agent<a class="headerlink" href="#composed-agent" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Agent</span> <span class="o">::=</span> <span class="n">choiceComposedAgent</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">choiceComposedAgent</span> <span class="o">::=</span> <span class="n">paraComposedAgent</span> <span class="o">|</span> <span class="n">paraComposedAgent</span> <span class="nc">OpChoice</span> <span class="n">choiceComposedAgent</span>
+
+<span class="n">paraComposedAgent</span>   <span class="o">::=</span> <span class="n">seqComposedAgent</span>  <span class="o">|</span> <span class="n">seqComposedAgent</span> <span class="nc">OpPara</span> <span class="n">paraComposedAgent</span>
+
+<span class="n">seqComposedAgent</span>    <span class="o">::=</span> <span class="n">simpleAgent</span>  <span class="o">|</span> <span class="n">simpleAgent</span> <span class="nc">OpSeq</span>  <span class="n">seqComposedAgent</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">OpChoice</span>  <span class="o">::=</span> <span class="s">&quot;+&quot;</span>
+<span class="nc">OpPara</span>    <span class="o">::=</span> <span class="s">&quot;||&quot;</span>
+<span class="nc">OpSeq</span>     <span class="o">::=</span> <span class="s">&quot;;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-agent">
+<h3>4.2. Simple agent<a class="headerlink" href="#simple-agent" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">simpleAgent</span> <span class="o">::=</span>  <span class="nc">Prim</span>  <span class="o">|</span>  <span class="nc">ProcedureCall</span>  <span class="o">|</span>  <span class="nc">ParenthesizedAgent</span>  <span class="o">|</span>  <span class="nc">CondAgent</span>  <span class="o">|</span>  <span class="nc">SumAgent</span>
+</pre></div>
+</div>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">ProcedureCall</span>      <span class="o">::=</span>  <span class="n">idUC</span> <span class="o">|</span> <span class="n">idUC</span> <span class="s">&quot;(&quot;</span> <span class="n">stInfoArgs</span> <span class="s">&quot;)&quot;</span>
+
+<span class="nc">ParenthesizedAgent</span> <span class="o">::=</span>  <span class="s">&quot;(&quot;</span> <span class="nc">Agent</span> <span class="s">&quot;)&quot;</span>
+
+<span class="nc">CondAgent</span>          <span class="o">::=</span>  <span class="n">ifThenElseAgent</span> <span class="o">|</span> <span class="n">ifThenAgent</span>
+
+<span class="nc">SumAgent</span>           <span class="o">::=</span> <span class="s">&quot;sum&quot;</span> <span class="n">lVarsInSets</span> <span class="s">&quot;:&quot;</span> <span class="nc">Agent</span>
+</pre></div>
+</div>
+<p>where:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">ifThenAgent</span>       <span class="o">::=</span>  <span class="n">abCond</span> <span class="s">&quot;-&gt;&quot;</span>  <span class="nc">Agent</span>
+<span class="n">ifThenElseAgent</span>   <span class="o">::=</span>  <span class="n">abCond</span> <span class="s">&quot;-&gt;&quot;</span>  <span class="nc">Agent</span>  <span class="s">&quot;&lt;&gt;&quot;</span>  <span class="nc">Agent</span>
+<span class="n">abCond</span>            <span class="o">::=</span>  <span class="n">orCond</span>
+<span class="n">orCond</span>            <span class="o">::=</span>  <span class="n">andCond</span> <span class="o">|</span> <span class="n">andCond</span> <span class="n">op_or</span> <span class="n">orCond</span>
+<span class="n">andCond</span>           <span class="o">::=</span>  <span class="n">simpleCond</span> <span class="o">|</span> <span class="n">simpleCond</span> <span class="n">op_and</span> <span class="n">andCond</span>
+<span class="n">simpleCond</span>        <span class="o">::=</span>  <span class="n">primitiveCond</span> <span class="o">|</span> <span class="n">negCond</span> <span class="o">|</span> <span class="n">parenthesizedCond</span>
+<span class="n">primitiveCond</span>     <span class="o">::=</span>  <span class="n">stInfo</span> <span class="n">relop</span>  <span class="n">stInfo</span>
+<span class="n">negCond</span>           <span class="o">::=</span>  <span class="n">op_neg</span>  <span class="n">abCond</span>
+<span class="n">parenthesizedCond</span> <span class="o">::=</span>  <span class="s">&quot;(&quot;</span> <span class="n">abCond</span> <span class="s">&quot;)&quot;</span>
+
+<span class="n">op_or</span>    <span class="o">::=</span> <span class="s">&quot;|&quot;</span>
+<span class="n">op_and</span>   <span class="o">::=</span> <span class="s">&quot;&amp;&quot;</span>
+<span class="n">op_neg</span>   <span class="o">::=</span> <span class="s">&quot;!&quot;</span>
+<span class="n">relop</span>    <span class="o">::=</span> <span class="n">op_equal</span> <span class="o">|</span> <span class="n">op_sless</span> <span class="o">|</span> <span class="n">op_leq</span> <span class="o">|</span> <span class="n">op_sge</span> <span class="o">|</span> <span class="n">op_geq</span>
+
+<span class="n">op_equal</span> <span class="o">::=</span>  <span class="s">&quot;=&quot;</span>
+<span class="n">op_sless</span> <span class="o">::=</span>  <span class="s">&quot;&lt;&quot;</span>
+<span class="n">op_leq</span>   <span class="o">::=</span>  <span class="s">&quot;&lt;=&quot;</span>
+<span class="n">op_sge</span>   <span class="o">::=</span>  <span class="s">&quot;&gt;&quot;</span>
+<span class="n">op_geq</span>   <span class="o">::=</span>  <span class="s">&quot;&gt;=&quot;</span>
+
+<span class="n">lVarsInSets</span> <span class="o">::=</span> <span class="n">varInSet</span> <span class="o">|</span> <span class="n">varInSet</span> <span class="s">&quot;,&quot;</span> <span class="n">lVarsInSets</span>
+<span class="n">varInSet</span>    <span class="o">::=</span> <span class="n">idLC</span> <span class="s">&quot;in&quot;</span> <span class="n">idLC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="procedures">
+<h2>5. Procedures<a class="headerlink" href="#procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">ProcDecls</span>     <span class="o">::=</span> <span class="s">&quot;proc&quot;</span>  <span class="o">(</span><span class="nc">ProcedureDecl</span><span class="o">)*</span>
+
+<span class="nc">ProcedureDecl</span> <span class="o">::=</span> <span class="nc">ProcedureName</span> <span class="s">&quot;=&quot;</span> <span class="nc">ProcedureBody</span> <span class="s">&quot;.&quot;</span>
+
+<span class="nc">ProcedureName</span> <span class="o">::=</span> <span class="n">idUC</span> <span class="o">|</span> <span class="n">idUC</span> <span class="s">&quot;(&quot;</span> <span class="nc">LargsDefProc</span> <span class="s">&quot;)&quot;</span>
+
+<span class="nc">LargsDefProc</span>  <span class="o">::=</span> <span class="nc">ArgDefProc</span> <span class="o">|</span> <span class="nc">ArgDefProc</span> <span class="s">&quot;,&quot;</span> <span class="nc">LargsDefProc</span>
+
+<span class="nc">ArgDefProc</span>    <span class="o">::=</span> <span class="n">idLC</span> <span class="s">&quot;:&quot;</span> <span class="n">idUC</span>
+
+<span class="nc">ProcedureBody</span> <span class="o">::=</span> <span class="nc">Agent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scenes">
+<h2>6. Scenes<a class="headerlink" href="#scenes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">SceneSpec</span> <span class="o">::=</span>  <span class="s">&quot;scene&quot;</span> <span class="o">(</span><span class="nc">SceneSpec</span><span class="o">)*</span>
+<span class="nc">SceneDef</span>       <span class="o">::=</span>  <span class="n">idLC</span>      <span class="s">&quot;=&quot;</span>  <span class="s">&quot;{&quot;</span>  <span class="nc">SizeScene</span>   <span class="nc">LayersScene</span>  <span class="nc">ImgsScene</span> <span class="nc">ListWidgetDesc</span>  <span class="s">&quot;}&quot;</span>  <span class="s">&quot;.&quot;</span>
+
+<span class="nc">SizeScene</span>      <span class="o">::=</span> <span class="s">&quot;size&quot;</span>     <span class="s">&quot;=&quot;</span>  <span class="s">&quot;(&quot;</span>  <span class="n">idInt</span>  <span class="s">&quot;,&quot;</span>    <span class="n">idInt</span>  <span class="s">&quot;)&quot;</span>  <span class="s">&quot;.&quot;</span>
+
+<span class="nc">LayersScene</span>    <span class="o">::=</span> <span class="s">&quot;layers&quot;</span>   <span class="s">&quot;=&quot;</span>  <span class="s">&quot;{&quot;</span>  <span class="n">lLayers</span>  <span class="s">&quot;}&quot;</span> <span class="s">&quot;.&quot;</span>
+<span class="n">lLayers</span>        <span class="o">::=</span> <span class="n">idLC</span> <span class="o">|</span> <span class="n">idLC</span>  <span class="s">&quot;,&quot;</span> <span class="n">lLayers</span>
+
+<span class="nc">ImgsScene</span>      <span class="o">::=</span> <span class="n">imgDef</span> <span class="o">|</span> <span class="n">imgDef</span> <span class="nc">ImgsScene</span>
+<span class="n">imgDef</span>         <span class="o">::=</span> <span class="n">idLC</span>  <span class="s">&quot;=&quot;</span>  <span class="s">&quot;loadImage(&quot;</span> <span class="n">idPathFile</span> <span class="s">&quot;)&quot;</span>  <span class="s">&quot;.&quot;</span>
+<span class="n">idPathFile</span>     <span class="o">::=</span> <span class="o">(</span><span class="nc">ExprIdPath</span><span class="o">).</span><span class="n">r</span>
+<span class="nc">ExprIdPath</span>     <span class="o">::=</span> <span class="s">&quot; [.0-9a-zA-Z_/\&quot;]+ &quot;</span>
+
+<span class="nc">ListWidgetDesc</span>   <span class="o">::=</span>  <span class="o">(</span><span class="n">widgetDesc</span><span class="o">)+</span>
+<span class="n">widgetDesc</span>       <span class="o">::=</span> <span class="s">&quot;widget&quot;</span>  <span class="n">idLC</span>  <span class="s">&quot;=&quot;</span>  <span class="s">&quot;{&quot;</span>  <span class="n">wdAttributes</span>  <span class="n">wdDisplays</span>  <span class="n">wdInits</span>   <span class="s">&quot;}&quot;</span>
+
+<span class="n">wdAttributes</span>     <span class="o">::=</span>  <span class="s">&quot;attributes&quot;</span>  <span class="s">&quot;=&quot;</span>  <span class="s">&quot;{&quot;</span> <span class="n">lWdAttributes</span> <span class="s">&quot;(&quot;</span>  <span class="s">&quot;)&quot;</span>  <span class="s">&quot;}&quot;</span>
+<span class="n">varInset</span>         <span class="o">::=</span>  <span class="n">idLC</span>  <span class="s">&quot;in&quot;</span>  <span class="n">idUC</span> <span class="s">&quot;.&quot;</span>
+<span class="n">lWdAttributes</span>    <span class="o">::=</span>  <span class="n">varInSet</span> <span class="o">|</span> <span class="n">varInSet</span> <span class="s">&quot;,&quot;</span> <span class="n">lWdAttributes</span>
+
+<span class="n">wdDisplays</span>       <span class="o">::=</span> <span class="s">&quot;display&quot;</span>  <span class="s">&quot;=&quot;</span>   <span class="s">&quot;{&quot;</span>  <span class="o">(</span><span class="n">dRule</span><span class="o">)+</span> <span class="s">&quot;}&quot;</span>
+<span class="n">dRule</span>            <span class="o">::=</span>  <span class="n">abCond</span>  <span class="s">&quot;-&gt;&quot;</span>  <span class="n">idLC</span>
+
+<span class="n">wdInits</span>          <span class="o">::=</span> <span class="s">&quot;init&quot;</span> <span class="s">&quot;=&quot;</span> <span class="s">&quot;{&quot;</span> <span class="o">(</span><span class="n">iRule</span><span class="o">)+</span> <span class="s">&quot;}&quot;</span>
+<span class="n">iRule</span>            <span class="o">::=</span>  <span class="n">idLC</span> <span class="s">&quot;=&quot;</span> <span class="n">siInfo</span> <span class="s">&quot;.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rules">
+<h2>7. Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">RuleDecls</span> <span class="o">::=</span> <span class="s">&quot;rule&quot;</span> <span class="o">(</span><span class="n">ruleDef</span><span class="o">)*</span>
+
+<span class="nc">RuleDef</span>       <span class="o">::=</span>   <span class="n">idLC</span>  <span class="s">&quot;= &quot;</span>  <span class="o">[</span><span class="kt">optVarsInFor</span><span class="o">]</span>  <span class="n">preCRule</span>  <span class="s">&quot;--&gt;&quot;</span>  <span class="n">postCRule</span>  <span class="s">&quot;.&quot;</span>
+
+<span class="n">optVarsInFor</span>  <span class="o">::=</span> <span class="s">&quot;for&quot;</span> <span class="n">varsInFor</span> <span class="s">&quot;:&quot;</span>
+<span class="n">varsInFor</span>     <span class="o">::=</span> <span class="n">varInset</span> <span class="o">|</span> <span class="n">varInSet</span> <span class="s">&quot;,&quot;</span> <span class="n">varsInFor</span>
+
+<span class="n">preCRule</span>      <span class="o">::=</span> <span class="n">lSiStPnElm</span>
+<span class="n">postCRule</span>     <span class="o">::=</span> <span class="n">lSiStPnElm</span>
+<span class="n">lSiStPnElm</span>    <span class="o">::=</span> <span class="n">signedStPnInfo</span> <span class="o">|</span> <span class="n">signedStPnInfo</span> <span class="s">&quot;,&quot;</span>  <span class="n">lSiStPnElm</span>
+
+<span class="n">signedStPnInfo</span> <span class="o">::=</span> <span class="n">signSIElm</span> <span class="o">|</span> <span class="n">signPnInfo</span>
+<span class="n">signSIElm</span>      <span class="o">::=</span> <span class="n">sign</span> <span class="n">stInfo</span>
+<span class="n">signPnInfo</span>     <span class="o">::=</span> <span class="n">sign</span> <span class="nc">ProcedureCall</span>
+<span class="n">sign</span>           <span class="o">::=</span>  <span class="s">&quot;+&quot;</span>   <span class="o">|</span>  <span class="s">&quot;-&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="temporal-formulae">
+<h2>8. Temporal formulae<a class="headerlink" href="#temporal-formulae" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Ab_ltl_form</span>   <span class="o">::=</span> <span class="nc">Ab_store_form</span> <span class="o">|</span> <span class="nc">Ab_store_form</span> <span class="s">&quot;Until&quot;</span> <span class="nc">Ab_ltl_form</span> <span class="o">|</span> <span class="s">&quot;Next&quot;</span> <span class="nc">Ab_ltl_form</span> <span class="o">|</span> <span class="s">&quot;Reach&quot;</span> <span class="nc">Ab_store_form</span>
+</pre></div>
+</div>
+<p>where:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Ab_store_form</span>   <span class="o">::=</span> <span class="nc">OrStoreForm</span>
+
+<span class="nc">OrStoreForm</span>     <span class="o">::=</span> <span class="nc">AndStoreForm</span> <span class="o">|</span> <span class="nc">AndStoreForm</span> <span class="n">op_or</span> <span class="nc">OrStoreForm</span>
+
+<span class="nc">AndStoreForm</span>    <span class="o">::=</span> <span class="nc">SimpleStoreForm</span> <span class="o">|</span> <span class="nc">SimpleStoreForm</span> <span class="n">op_and</span>  <span class="nc">AndStoreForm</span>
+
+<span class="nc">SimpleStoreForm</span> <span class="o">::=</span> <span class="nc">TrueStoreForm</span> <span class="o">|</span> <span class="nc">FalseStoreForm</span> <span class="o">|</span> <span class="nc">PrimitiveStoreForm</span> <span class="o">|</span> <span class="nc">NegStoreForm</span> <span class="o">|</span> <span class="nc">ParenthesizedStoreForm</span>
+
+<span class="nc">TrueStoreForm</span>          <span class="o">::=</span> <span class="s">&quot;true&quot;</span>
+<span class="nc">FalseStoreForm</span>         <span class="o">::=</span> <span class="s">&quot;false&quot;</span>
+<span class="nc">PrimitiveStoreForm</span>     <span class="o">::=</span> <span class="nc">Ab_sf_exp</span> <span class="n">relop</span> <span class="nc">Ab_sf_exp</span>
+<span class="nc">NegStoreForm</span>           <span class="o">::=</span> <span class="n">op_neg</span> <span class="nc">Ab_store_form</span>
+<span class="nc">ParenthesizedStoreForm</span> <span class="o">::=</span> <span class="s">&quot;(&quot;</span> <span class="nc">Ab_store_form</span> <span class="s">&quot;)&quot;</span>
+
+<span class="nc">Ab_sf_exp</span>              <span class="o">::=</span> <span class="n">idInt</span>
+<span class="n">idInt</span>                  <span class="o">::=</span> <span class="o">(</span><span class="nc">ExprInt</span><span class="o">).</span><span class="n">r</span>
+<span class="nc">ExprInt</span>                <span class="o">::=</span> <span class="s">&quot;[0-9]+&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="anemone-s-core-program">
+<h2>9. Anemone’s core program<a class="headerlink" href="#anemone-s-core-program" title="Permalink to this headline">¶</a></h2>
+<p>A program in Anemone consists of specifying successively sets,
+equations, scenes, procedures and rules. Some of the declarations may
+be skipped.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Abprgm</span>      <span class="o">::=</span> <span class="o">[</span><span class="kt">Aboptset</span><span class="o">]</span> <span class="o">[</span><span class="kt">Abopteqn</span><span class="o">]</span> <span class="o">[</span><span class="kt">Aboptscene</span><span class="o">]</span> <span class="o">[</span><span class="kt">Aboptproc</span><span class="o">]</span> <span class="o">[</span><span class="kt">Aboptrule</span><span class="o">]</span>
+<span class="nc">Aboptset</span>    <span class="o">::=</span> <span class="nc">SetSpec</span>
+<span class="nc">Abopteqn</span>    <span class="o">::=</span> <span class="nc">EqnSpec</span>
+<span class="nc">Aboptscene</span>  <span class="o">::=</span> <span class="nc">SceneSpec</span>
+<span class="nc">Aboptproc</span>   <span class="o">::=</span> <span class="nc">ProcDecls</span>
+<span class="nc">Aboptrule</span>   <span class="o">::=</span> <span class="nc">RuleDecls</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+
+        <div class="bottomnav">
+          
+        <p>
+        &#171;&#160;&#160;<a href="Page2.html">The Multi-Bach language and its temporal logic</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+        </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Manel Barkallah &amp; Jean-Marie Jacquet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>
