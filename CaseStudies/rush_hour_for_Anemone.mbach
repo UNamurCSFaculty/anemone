@@ -1,0 +1,245 @@
+eset RCInt = { 1, 2, 3, 4, 5, 6 }.
+     Colors = { yellow, green, blue, purple, red, orange }.
+     RCPlaces = { in_grid, out_grid }.
+     
+eqn down_car(1) = 3. down_car(2) = 4. down_car(3) = 5. down_car(4) = 6.
+    down_truck(1) = 4. down_truck(2) = 5. down_truck(3) = 6. 
+
+    right_car(1) = 3. right_car(2) = 4. right_car(3) = 5. right_car(4) = 6.
+    right_truck(1) = 4. right_truck(2) = 5. right_truck(3) = 6.
+
+    pred(2) = 1. pred(3) = 2. pred(4) = 3. pred(5) = 4. pred(6) = 5.
+    succ(1) = 2. succ(2) = 3. succ(3) = 4. succ(4) = 5. succ(5) = 6.
+
+    img_truck(yellow) = yellow_truck. img_truck(green) = green_truck.
+    img_truck(blue) = blue_truck. img_truck(purple) = purple_truck.
+
+    img_car(red) = red_car. img_car(green) = green_car. img_car(orange) = orange_car.
+
+    x_vehicle(1) = 55.  x_vehicle(2) = 130. x_vehicle(3) = 210.
+    x_vehicle(4) = 285. x_vehicle(5) = 360. x_vehicle(6) = 435. 
+
+    y_vehicle(1) = 80.  y_vehicle(2) = 155. y_vehicle(3) = 230.
+    y_vehicle(4) = 310. y_vehicle(5) = 385. y_vehicle(6) = 460.
+    
+    
+scene rhScene = {
+
+    size = (562,618).
+    layers = { top }.
+
+    background = loadImage(Images/rh_empty.png).
+    yellow_truck_img = loadImage(Images/yellow_truck.png).
+    green_truck_img = loadImage(Images/green_truck.png).
+    blue_truck_img = loadImage(Images/blue_truck.png).
+    purple_truck_img = loadImage(Images/purple_truck.png).    
+    red_car_img_in = loadImage(Images/red_car_in.png).
+    red_car_img_out = loadImage(Images/red_car_out.png).        
+    green_car_img = loadImage(Images/green_car.png).    
+    orange_car_img = loadImage(Images/orange_car.png).
+
+    widget yellow_truck = {
+       display = { yellow_truck_img }
+       init = { wdL = top. }
+    }
+
+    widget green_truck = {
+       display = { green_truck_img }
+       init = { wdL = top. }
+    }
+
+    widget blue_truck = {
+       display = { blue_truck_img }
+       init = { wdL = top. }
+    }
+
+    widget purple_truck = {
+       display = { purple_truck_img }
+       init = { wdL = top. }
+    }
+
+    widget red_car = {
+       attributes = { position in RCPlaces. }
+       display = {
+          position = in_grid -> red_car_img_in.
+          position = out_grid -> red_car_img_out.	  
+       }
+       init = {
+          wdL = top.
+          position = in_grid.
+       }
+    }
+
+    widget green_car = {
+       display = { green_car_img }
+       init = { wdL = top. }
+    }
+
+    widget orange_car = {
+       display = { orange_car_img }
+       init = { wdL = top. }
+    }
+
+}.
+
+
+proc VerticalCar(r: RCInt, c: RCInt, p: Colors) =
+        ( (r>1 & r<6) -> ( get(free(pred(r),c));
+	                   MoveCar(pred(r),c,p);
+	                   tell(free(succ(r),c));
+                           VerticalCar(pred(r),c,p) ))
+        +
+        ( (r>=1 & r<5) -> ( get(free(down_car(r),c));
+	                    MoveCar(succ(r),c,p);
+	                    tell(free(r,c));
+                            VerticalCar(succ(r),c,p) )).
+
+     VerticalTruck(r: RCInt, c: RCInt, p: Colors) =
+        ( (r>1 & r<5) ->  ( get(free(pred(r),c));
+	                    MoveTruck(pred(r),c,p);
+	                    tell(free(succ(succ(r)),c));
+                            VerticalTruck(pred(r),c,p) ))
+        +
+        ( (r>=1 & r<4) -> ( get(free(down_truck(r),c));
+	                    MoveTruck(succ(r),c,p);
+	                    tell(free(r,c));
+                            VerticalTruck(succ(r),c,p) )).
+
+     HorizontalCar(r: RCInt, c: RCInt, p: Colors) =
+        ( (c>1 & c<6) ->  ( get(free(r,pred(c)));
+	                    MoveCar(r,pred(c),p);
+	                    tell(free(r,succ(c)));
+	                    HorizontalCar(r,pred(c),p) ))
+        +
+	( (c>=1 & c<5) -> ( get(free(r,right_car(c)));
+	                    MoveCar(r,succ(c),p);
+	                    tell(free(r,c));
+		            HorizontalCar(r,succ(c),p) ))
+        +
+	( (r=3 & c=5 & p=red) -> ( tell(out); MoveCar(p,r,succ(c)) )).
+		 
+     HorizontalTruck(r: RCInt, c: RCInt, p: Colors) =
+        ( (c>1 & c<5) ->  ( get(free(r,pred(c)));
+	                    MoveTruck(r,pred(c),p);
+	                    tell(free(r,succ(succ(c))));
+	                    HorizontalTruck(r,pred(c),p) ))
+        +
+	( (c>=1 & c<4) -> ( get(free(r,right_truck(c)));
+	                    MoveTruck(r,succ(c),p);
+	                    tell(free(r,c));
+		            HorizontalTruck(r,succ(c),p) )).
+
+     MoveCar(r:RCInt, c: RCInt, p: Colors) =
+        ( p = red -> move_to(red_car,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = green -> move_to(green_car,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = organge -> move_to(orange_car,rhScene,x_vehicle(c),y_vehicle(r)) ).
+
+     MoveTruck(r:RCInt, c: RCInt, p: Colors) =
+        ( p = yellow -> move_to(yellow_truck,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = green -> move_to(green_truck,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = blue -> move_to(blue_truck,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = purple -> move_to(purple_truck,rhScene,x_vehicle(c),y_vehicle(r)) ).
+
+     PlaceTruck(r: RCInt, c: RCInt, p: Colors) =
+        ( p = yellow -> place_at(yellow_truck,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = green -> place_at(green_truck,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = blue -> place_at(blue_truck,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = purple -> place_at(purple_truck,rhScene,x_vehicle(c),y_vehicle(r)) ).
+
+     PlaceCar(r: RCInt, c: RCInt, p: Colors) =
+        ( p = red -> place_at(red_car,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = green -> place_at(green_car,rhScene,x_vehicle(c),y_vehicle(r)) )
+	+
+        ( p = orange -> place_at(orange_car,rhScene,x_vehicle(c),y_vehicle(r)) ).
+
+     ShowTruck(p: Colors) =
+        ( p = yellow -> show(yellow_truck,rhScene) )
+	+
+        ( p = green -> show(green_truck,rhScene) )
+	+
+        ( p = blue -> show(blue_truck,rhScene) )
+	+
+        ( p = purple -> show(purple_truck,rhScene) ).
+
+     ShowCar(p: Colors) =
+        ( p = red -> show(red_car,rhScene) )
+	+
+        ( p = green -> show(green_car,rhScene) )
+	+
+        ( p = orange -> show(orange_car,rhScene) ).
+
+     InitFreePlaces = FreeRows(1).
+     
+     FreeRows(r: RCInt) =
+        ( (r<6) -> ( FreePlacesForRow(r,1) || FreeRows(succ(r)) ) )
+        +
+        ( (r=6) -> ( FreePlacesForRow(r,1) ) ).
+
+     FreePlacesForRow(r: RCInt,c: RCInt) =
+        ( (c<6) -> ( tell(free(r,c)); FreePlacesForRow(r,succ(c)) ) )
+        +
+        ( (c=6) -> ( tell(free(r,c)) ) ).
+
+     VTruckPlaces(r: RCInt, c: RCInt) =
+        (r<5) -> get(free(r,c));
+                 get(free(succ(r),c));
+                 get(free(succ(succ(r)),c)).
+
+     VCarPlaces(r: RCInt, c: RCInt) =
+        (r<6) -> get(free(r,c));
+                 get(free(succ(r),c)).
+
+     HTruckPlaces(r: RCInt, c: RCInt) =
+        (c<5) -> get(free(r,c));
+                 get(free(r,succ(c)));
+                 get(free(r,succ(succ(c)))).
+
+     HCarPlaces(r: RCInt, c: RCInt) =
+        (c<6) -> get(free(r,c));
+                 get(free(r,succ(c))).
+
+
+     YellowTruck(r: RCInt, c: RCInt) = VerticalTruck(r,c,yellow).
+     GreenTruck(r: RCInt, c: RCInt) = HorizontalTruck(r,c,green).
+     BlueTruck(r: RCInt, c: RCInt) = HorizontalTruck(r,c,blue).
+     PurpleTruck(r: RCInt, c: RCInt) = VerticalTruck(r,c,purple).
+     
+     RedCar(r: RCInt, c: RCInt) = HorizontalCar(r,c,red).
+     GreenCar(r: RCInt, c: RCInt) = VerticalCar(r,c,green).
+     OrangeCar(r: RCInt, c: RCInt) = VerticalCar(r,c,orange).
+
+     YellowTruckAt(r: RCInt, c: RCInt) = VTruckPlaces(r,c); PlaceTruck(r,c,yellow); ShowTruck(yellow).
+     GreenTruckAt(r: RCInt, c: RCInt) = HTruckPlaces(r,c); PlaceTruck(r,c,green); ShowTruck(green).
+     BlueTruckAt(r: RCInt, c: RCInt) = HTruckPlaces(r,c); PlaceTruck(r,c,blue); ShowTruck(blue).
+     PurpleTruckAt(r: RCInt, c: RCInt) = VTruckPlaces(r,c); PlaceTruck(r,c,purple); ShowTruck(purple).
+     
+     RedCarAt(r: RCInt, c: RCInt) = HCarPlaces(r,c); PlaceCar(r,c,red); ShowCar(red).
+     GreenCarAt(r: RCInt, c: RCInt) = VCarPlaces(r,c); PlaceCar(r,c,green); ShowCar(green).
+     OrangeCarAt(r: RCInt, c: RCInt) = VCarPlaces(r,c); PlaceCar(r,c,orange); ShowCar(orange).
+
+     RedCarOut = att(position,red_car,rhScene,out_grid).
+     
+     InitScene = draw_scene(rhScene).
+     
+     Init_game_1 =
+        InitScene; InitFreePlaces;
+	YellowTruckAt(1,1); GreenTruckAt(6,3); BlueTruckAt(4,4); PurpleTruckAt(1,4);
+	RedCarAt(3,2); GreenCarAt(4,3); OrangeCarAt(5,6);
+	( ( (YellowTruck(1,1) || GreenTruck(6,3)) || (BlueTruck(4,4) || PurpleTruck(1,4)) ) ||
+	  ( RedCar(3,2) || (GreenCar(4,3) || OrangeCar(5,6)) ) ).
+                   
+     Init_game_2 =
+        InitScene; InitFreePlaces;
+	PurpleTruckAt(2,6); RedCarAt(3,4);
+	( PurpleTruck(2,6) || RedCar(3,4) ).
+
+
