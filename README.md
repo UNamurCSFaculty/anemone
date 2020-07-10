@@ -12,7 +12,7 @@ Videos explaining the use of the workbench are available at the webpage
 
 https://staff.info.unamur.be/jmj/Anemone/videos
 
-The source code is available from this github repository together with a jar file. Case studies can also be found on the github as well as a tutorial article on the use of the workbench.
+The source code is available from this github repository together with a jar file. Case studies can also be found on this github repository as well as a tutorial article on the use of the workbench.
 
 
 ## For the impatient
