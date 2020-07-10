@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1384804898322
+Bundle-ManifestVersion: 2
+Bundle-Name: Scala Swing
+Bundle-SymbolicName: org.scala-lang.scala-swing
+Bundle-Version: 2.11.0.v20131118-101937-M7-c243435f11
+Created-By: 1.6.0_33 (Sun Microsystems Inc.)
+Export-Package: scala.swing.event;uses:="scala.swing,scala,scala.reflect
+ ,scala.runtime,scala.collection,javax.swing,scala.collection.immutable"
+ ;version="2.11.0.v20131118-101937-M7-c243435f11",scala.swing.model;uses
+ :="scala.reflect";version="2.11.0.v20131118-101937-M7-c243435f11",doc;v
+ ersion="2.11.0.v20131118-101937-M7-c243435f11",scala.swing;uses:="javax
+ .swing,scala.swing.event,scala.runtime,scala,scala.reflect,scala.collec
+ tion,scala.collection.mutable,scala.collection.immutable,scala.collecti
+ on.parallel.mutable,scala.collection.parallel,scala.collection.script,s
+ cala.math,scala.collection.generic,javax.swing.event,javax.swing.colorc
+ hooser,javax.swing.border,javax.swing.text,javax.swing.filechooser,scal
+ a.sys,scala.ref,scala.util,scala.collection.convert,javax.swing.table";
+ version="2.11.0.v20131118-101937-M7-c243435f11"
+Import-Package: javax.swing,javax.swing.border,javax.swing.colorchooser,
+ javax.swing.event,javax.swing.filechooser,javax.swing.table,javax.swing
+ .text,scala,scala.collection,scala.collection.convert,scala.collection.
+ generic,scala.collection.immutable,scala.collection.mutable,scala.colle
+ ction.parallel,scala.collection.parallel.mutable,scala.collection.scrip
+ t,scala.math,scala.ref,scala.reflect,scala.runtime,scala.sys,scala.util
+Private-Package: .
+Tool: Bnd-1.50.0

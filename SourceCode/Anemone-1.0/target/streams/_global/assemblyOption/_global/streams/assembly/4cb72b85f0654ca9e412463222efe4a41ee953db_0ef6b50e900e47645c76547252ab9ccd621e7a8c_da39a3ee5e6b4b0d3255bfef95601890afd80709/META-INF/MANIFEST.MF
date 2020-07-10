@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: scala-swing
+Implementation-Version: 2.1.1
+Specification-Vendor: org.scala-lang.modules
+Specification-Title: scala-swing
+Implementation-Vendor-Id: org.scala-lang.modules
+Specification-Version: 2.1.1
+Implementation-URL: http://www.scala-lang.org/
+Implementation-Vendor: org.scala-lang.modules
+

@@ -1,0 +1,301 @@
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:1:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:2:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing.event._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:3:8: not found: object GridBagPanel[0m
+[0m[[0m[31merror[0m] [0m[0mimport GridBagPanel._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:10:83: not found: type Frame[0m
+[0m[[0m[31merror[0m] [0m[0mclass InteractiveProcedureAgent(ag_id:Int,mybb: ABStore,myscene: ABScene) extends Frame {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_parser.scala:1:19: object parsing is not a member of package util[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.util.parsing.combinator._[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_parser.scala:4:31: not found: type RegexParsers[0m
+[0m[[0m[31merror[0m] [0m[0mclass AnimBachParsers extends RegexParsers {[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:32:17: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m            new Label {  text = txt_arg[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:32:26: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m            new Label {  text = txt_arg[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:33:26: not found: value foreground[0m
+[0m[[0m[31merror[0m] [0m[0m                         foreground = new java.awt.Color(0, 0, 0) [0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:34:26: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m                         background = pink[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:35:26: not found: value opaque[0m
+[0m[[0m[31merror[0m] [0m[0m                         opaque = true } [0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:134:24: not found: type GridBagPanel[0m
+[0m[[0m[31merror[0m] [0m[0m    val theAgent = new GridBagPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:141:20: not found: type Constraints[0m
+[0m[[0m[31merror[0m] [0m[0m       val c = new Constraints[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:145:32: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theAgentTitle = new Label { text = "Set/map/scene/proc description(s) to be processed" }[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:145:40: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theAgentTitle = new Label { text = "Set/map/scene/proc description(s) to be processed" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:158:29: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrut_i = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:158:37: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrut_i = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:163:32: not found: type TextArea[0m
+[0m[[0m[31merror[0m] [0m[0m       val theAgentField = new TextArea(10, 60)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:165:42: not found: type ScrollPane[0m
+[0m[[0m[31merror[0m] [0m[0m       val theScrollableAgentField = new ScrollPane(theAgentField)[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:170:39: not found: type Button[0m
+[0m[[0m[31merror[0m] [0m[0m       val theSubmitAgentButton = new Button { [0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:171:11: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m          text = "Submit" }[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:181:39: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theCurrentAgentTitle = new Label { text = "Description(s) parsed" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:181:47: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theCurrentAgentTitle = new Label { text = "Description(s) parsed" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:194:30: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrut_ii = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:194:38: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrut_ii = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:200:39: not found: type TextArea[0m
+[0m[[0m[31merror[0m] [0m[0m       val theCurrentAgentField = new TextArea(10,60)[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:204:49: not found: type ScrollPane[0m
+[0m[[0m[31merror[0m] [0m[0m       val theScrollableCurrentAgentField = new ScrollPane(theCurrentAgentField)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:136:8: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m       background = pink[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:153:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theAgentTitle) = c[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:161:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theStrut_i) = c[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:168:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theScrollableAgentField) = c[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:174:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theSubmitAgentButton) = c [0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:189:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theCurrentAgentTitle) = c[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:197:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theStrut_ii) = c[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:207:8: not found: value layout[0m
+[0m[[0m[31merror[0m] [0m[0m       layout(theScrollableCurrentAgentField) = c[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:227:8: not found: value border[0m
+[0m[[0m[31merror[0m] [0m[0m       border = Swing.EmptyBorder(15,10,15,10) [0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_parser.scala:303:32: not found: value parseAll[0m
+[0m[[0m[31merror[0m] [0m[0m  def parse_prgm(ag: String) = parseAll(abprgm,ag) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_parser.scala:32:18: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m  def abprgm   : Parser[(Any, Any, Any, Any, Any)] = [0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_parser.scala:304:14: not found: value Success[0m
+[0m[[0m[31merror[0m] [0m[0m        case Success(result, _) => result[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_parser.scala:305:24: not found: type NoSuccess[0m
+[0m[[0m[31merror[0m] [0m[0m        case failure : NoSuccess => { scala.sys.error(failure.msg)[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_store.scala:2:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_scene.scala:4:8: not found: object processing[0m
+[0m[[0m[31merror[0m] [0m[0mimport processing.core._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_scene.scala:5:8: not found: object PConstants[0m
+[0m[[0m[31merror[0m] [0m[0mimport PConstants._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_scene.scala:6:8: not found: object PApplet[0m
+[0m[[0m[31merror[0m] [0m[0mimport PApplet._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:246:6: not found: value listenTo[0m
+[0m[[0m[31merror[0m] [0m[0m     listenTo(theAgent.theSubmitAgentButton)[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:253:6: not found: value reactions[0m
+[0m[[0m[31merror[0m] [0m[0m     reactions += {[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:254:15: not found: value ButtonClicked[0m
+[0m[[0m[31merror[0m] [0m[0m         case ButtonClicked(theAgent.theSubmitAgentButton) => parse_proc_dfn[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:263:29: not found: type FlowPanel[0m
+[0m[[0m[31merror[0m] [0m[0m   val theStrutPanelI = new FlowPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:264:11: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m          background = pink[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:265:11: not found: value hGap[0m
+[0m[[0m[31merror[0m] [0m[0m          hGap = 40[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:266:11: not found: value vGap[0m
+[0m[[0m[31merror[0m] [0m[0m          vGap = 20[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:267:11: not found: value border[0m
+[0m[[0m[31merror[0m] [0m[0m          border = Swing.EmptyBorder(5,10,5,10) [0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:270:30: not found: type FlowPanel[0m
+[0m[[0m[31merror[0m] [0m[0m   val theStrutPanelII = new FlowPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:271:11: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m          background = pink[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:272:11: not found: value hGap[0m
+[0m[[0m[31merror[0m] [0m[0m          hGap = 40[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:273:11: not found: value vGap[0m
+[0m[[0m[31merror[0m] [0m[0m          vGap = 20[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:274:11: not found: value border[0m
+[0m[[0m[31merror[0m] [0m[0m          border = Swing.EmptyBorder(5,10,5,10) [0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:277:9: value title is not a member of InteractiveProcedureAgent[0m
+[0m[[0m[31merror[0m] [0m[0m   this.title = "Agent number " + ag_id.toString[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:278:9: value visible is not a member of InteractiveProcedureAgent[0m
+[0m[[0m[31merror[0m] [0m[0m   this.visible = true[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:279:10: value contents is not a member of InteractiveProcedureAgent[0m
+[0m[[0m[31merror[0m] [0m[0m    this.contents = new BoxPanel(Orientation.Vertical) {[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_descriptions_interact.scala:284:9: value pack is not a member of InteractiveProcedureAgent[0m
+[0m[[0m[31merror[0m] [0m[0m   this.pack()[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:1:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:2:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing.event._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:5:8: not found: object GridBagPanel[0m
+[0m[[0m[31merror[0m] [0m[0mimport GridBagPanel._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:14:38: not found: type SimpleSwingApplication[0m
+[0m[[0m[31merror[0m] [0m[0mobject InteractiveBlackboard extends SimpleSwingApplication {[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:146:31: not found: type GridBagPanel[0m
+[0m[[0m[31merror[0m] [0m[0m    val theCurrentStore = new GridBagPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:150:20: not found: type Constraints[0m
+[0m[[0m[31merror[0m] [0m[0m       val c = new Constraints[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:155:32: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStoreTitle = new Label { text = "Current store" }[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:155:40: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStoreTitle = new Label { text = "Current store" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:165:38: not found: type Button[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStoreClearButton = new Button { text = "Clear" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:165:47: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStoreClearButton = new Button { text = "Clear" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:173:28: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrutI = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:173:36: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrutI = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:178:26: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val labelbb = new Label("currently empty")[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:179:24: not found: type FlowPanel[0m
+[0m[[0m[31merror[0m] [0m[0m       val bbObj = new FlowPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:180:13: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m            background = blue[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:181:13: not found: value opaque[0m
+[0m[[0m[31merror[0m] [0m[0m            opaque = true[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:182:13: not found: value contents[0m
+[0m[[0m[31merror[0m] [0m[0m            contents += labelbb [0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:183:13: not found: value hGap[0m
+[0m[[0m[31merror[0m] [0m[0m            hGap = 40[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:184:13: not found: value vGap[0m
+[0m[[0m[31merror[0m] [0m[0m            vGap = 30[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:185:13: not found: value border[0m
+[0m[[0m[31merror[0m] [0m[0m            border = Swing.EmptyBorder(15,10,10,10) }[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:190:25: not found: type ScrollPane[0m
+[0m[[0m[31merror[0m] [0m[0m       val SbbObj = new ScrollPane(bbObj)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:193:29: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrutII = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:193:37: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStrutII = new Label { text = " " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:198:34: not found: type FlowPanel[0m
+[0m[[0m[31merror[0m] [0m[0m       val theStoreButtons = new FlowPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:200:35: not found: type Button[0m
+[0m[[0m[31merror[0m] [0m[0m          val theTellButton = new Button { text = "Tell" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:200:44: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m          val theTellButton = new Button { text = "Tell" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:201:34: not found: type Button[0m
+[0m[[0m[31merror[0m] [0m[0m          val theGetButton = new Button { text = "Get" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:201:43: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m          val theGetButton = new Button { text = "Get" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:202:35: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSTokenText = new Label { text = "token : " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:202:43: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSTokenText = new Label { text = "token : " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:203:36: not found: type TextField[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSTokenField = new TextField { columns = 15 [0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:203:48: not found: value columns[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSTokenField = new TextField { columns = 15 [0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:204:48: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m                                               text = "t" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:205:37: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSDensityText = new Label { text = "multiplicity : " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:205:45: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSDensityText = new Label { text = "multiplicity : " }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:206:38: not found: type TextField[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSDensityField = new TextField { columns = 10 [0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:206:50: not found: value columns[0m
+[0m[[0m[31merror[0m] [0m[0m          val theSDensityField = new TextField { columns = 10 [0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:207:50: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 text = "1" }[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/VersionDemowithSBT/versionSBT/src/main/scala/ab_interact.scala:199:11: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m          background = blue[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m577 errors found[0m

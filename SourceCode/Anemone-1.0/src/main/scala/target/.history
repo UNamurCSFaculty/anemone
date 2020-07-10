@@ -1,0 +1,10 @@
+compile
+quit
+exit
+libraryDependencies += "org.scala-lang.modules" %% "scala-library-all" % "2.12.8"
+libraryDependencies += "org.scala-lang.modules" %% "scala-library-all" % "2.12.8";
+libraryDependencies += "org.scala-lang.modules:scala-library-all:2.12.8";
+libraryDependencies += "org.scala-lang.modules:scala-library-all:2.12.8" ;
+quit
+halt
+exit

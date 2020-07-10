@@ -1,0 +1,33 @@
+scene ppScene = {
+
+    size = (600,191).
+    layers = { top }.
+
+    background = loadImage(Images/ground.png).
+    football_img = loadImage(Images/football.png).
+    basketball_img = loadImage(Images/basketball.png).
+
+    widget football = {
+       display = { football_img }
+       init = { wdL = top. }
+    }
+
+    widget basketball = {
+       display = { basketball_img }
+       init = { wdL = top. }
+    }
+
+}.
+
+proc Ping = tell(ping); show(football,ppScene);
+            get(pong); hide(basketball,ppScene);
+	    Ping.
+
+     Pong = get(ping); hide(football,ppScene);
+            tell(pong); show(basketball,ppScene);
+	    Pong.
+
+     Init = draw_scene(ppScene);
+            place_at(football,ppScene,150,50);
+	    place_at(basketball,ppScene,375,50).
+	    

@@ -1,0 +1,5 @@
+[0m[[0m[33mwarn[0m] [0m[0m/home/jmj/Professionnel/Recherche/Projets/Scan_Simple_Coordination_Workbench/Anemone-upto-1.0/Anemone-0.1/src/main/scala/ab_parser/ab_parser.scala:216:78: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: ~(_, (x: Object forSome x not in (ab_data.AB_AST_Proc_Call, ab_data.AB_SI_ATOMIC, ab_data.AB_SI_COMPOSED)))[0m
+[0m[[0m[33mwarn[0m] [0m[0m  def signedStPnInfo : Parser[AB_SIGNED_SI_PN_ELM] = signSIElm ~ stPnInfo ^^ {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

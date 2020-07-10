@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: JTattoo
+Implementation-Version: 1.6.12
+Archiver-Version: Plexus Archiver
+Built-By: Michael Hagen
+Implementation-Vendor-Id: com.jtattoo
+Created-By: Apache Maven 3.0.5
+Build-Jdk: 1.8.0_191
+Main-Class: com.jtattoo.plaf.About
+
