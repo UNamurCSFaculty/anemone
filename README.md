@@ -21,6 +21,8 @@ Save the anemone.jar file under a directory, say myDir, go to to the working dir
 
 java -jar myDir/anemone.jar
 
+Note that the jar file is produced for Java 1.8. If you have another version, please first install Java 1.8 and switch to this version. Alternatively, you can rebuild Anemone from the source code using sbt.
+
 
 
 ## Contact
